@@ -4,7 +4,7 @@ class Pipe {
 //    this.top = random(height/2);
 //    this.bottom = random(height/2);
     this.top = random(15,height-205);
-    this.bottom = height - this.top - random(80,100)
+    this.bottom = height - this.top - random(90,130)
     this.x = width;
     this.w = 30;
     this.speed = 5;
@@ -12,7 +12,7 @@ class Pipe {
   }
   
   hits(bird) {
-    if(bird.y < this.top || bird.y > height - this.bottom) {
+    if(bird.y - 16 < this.top || bird.y + 16 > height - this.bottom) {
       if(bird.x > this.x && bird.x < this.x + this.w ) {
         this.highlight = true;
         return true;
