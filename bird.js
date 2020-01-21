@@ -3,7 +3,7 @@ class Bird {
   constructor(brain) {
     this.y = height/2;
     this.x = 64;
-    this.gravity = 0.6;
+    this.gravity = 0.8;
     this.lift = -10;
     this.velocity = 0;
     
@@ -20,7 +20,7 @@ class Bird {
   show() {
     stroke(255);
     fill(255,50);
-    ellipse(this.x, this.y, 32,32);
+    ellipse(this.x, this.y, 32, 32);
   }
   
   up() {
