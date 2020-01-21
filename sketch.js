@@ -5,6 +5,7 @@ let pipes = [];
 let counter = 0;
 let cycles = 100;
 let slider;
+var cnv;
 
 function keyPressed() {
     if(key === 'S') {
@@ -15,8 +16,18 @@ function keyPressed() {
 }
 
 function setup() {
-  createCanvas(600,400);
-  slider = createSlider(1, 100, 1);
+  cnv = createCanvas(600,400);
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+  fill(120);
+  input = createP('Slider to speed up the Training');
+  input.position((windowWidth / 2) - 250,(windowHeight/2) + 210 );
+  //speedup = createElement('h2', 'Slider to spped up the training');
+  slider = createSlider(1, 1000, 1);
+  slider.position((windowWidth / 2) - 250,(windowHeight/2) + 250 );
+  input = createP('(Shift + s) - to save the best agent');
+  input.position((windowWidth / 2) - 250,(windowHeight/2) + 270 );
   for(let i = 0; i<TOTAL; i++) {
     birds[i] = new Bird();
   }
@@ -69,6 +80,9 @@ function draw() {
   
   //All the drawing Stuff here
   background(0);
+    
+  //fill(0);
+  //text( 'Slider to spped up the training'  , (windowWidth / 2) - 250,(windowHeight/2) + 100  );
   
   for(let bird of birds) {
     bird.show();
